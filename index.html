@@ -34,5 +34,40 @@
       <code>offset-rotate</code>.
     </p>
   </section>
+
+  <section class="svg-demo">
+  <h2>SVG + CSS Animation</h2>
+
+  <div class="svg-card">
+    <svg
+      class="star-svg"
+      viewBox="0 0 120 120"
+      aria-hidden="true"
+      role="img"
+    >
+      <!-- Star outline -->
+      <polygon
+        id="star-outline"
+        points="60,10 72.9,42.2 107.6,44.5 80.9,66.8 89.4,100.5 60,82 30.6,100.5 39.1,66.8 12.4,44.5 47.1,42.2"
+        fill="none"
+        stroke="#ffb703"
+        stroke-width="5"
+        stroke-linejoin="round"
+      />
+      <!-- Star fill -->
+      <polygon
+        id="star-fill"
+        points="60,10 72.9,42.2 107.6,44.5 80.9,66.8 89.4,100.5 60,82 30.6,100.5 39.1,66.8 12.4,44.5 47.1,42.2"
+        fill="#ffb703"
+      />
+    </svg>
+
+    <p class="svg-caption">
+      This star icon is an inline SVG. The fill polygon scales in (“pop”) while
+      both shapes fade using CSS keyframe animations.
+    </p>
+  </div>
+</section>
+
 </body>
 </html>
