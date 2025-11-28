@@ -563,7 +563,7 @@ animation:
   animation-fill-mode: both;
 }
 
-/* For older WebKit (optional but safe to include): */
+/* For older WebKit */
 /*
 .motion-robot {
   -webkit-offset-distance: 0%;
