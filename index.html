@@ -2,72 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CSS Animation Demo</title>
+  <title>CSS Animation Course – Demo Gallery</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>CSS Animation Practice</h1>
+  <main class="page">
+    <header class="page-header">
+      <h1>CSS Animation Practice Gallery</h1>
+      <p class="lede">
+        A compact demo inspired by the CSS Animation course – covering transforms, transitions,
+        keyframe animation, easing, steps(), motion paths, SVG animation, and more.
+      </p>
+    </header>
 
-  <button class="box">Hover me</button>
+    <section class="demo-stack">
 
-  <div class="panel"></div>
-  <div class="fade-in">I fade in ✨</div>
-  <div class="circle"></div>
+      <!-- 1. Transforms + transitions -->
+      <article class="card" id="transforms-transitions">
+        <header class="card-header">
+          <h2>Transforms &amp; Transitions</h2>
+          <p class="card-note">
+            Transforms change appearance; transitions animate between states on interaction.
+          </p>
+        </header>
+        <div class="card-body">
+          <button class="btn-demo">
+            Hover &amp; click me
+          </button>
+        </div>
+      </article>
 
-  <section class="chained-demo">
-    <h2>Chained Keyframe Animation</h2>
-    <p class="flip-word" aria-label="Up and over text animation">
-      <span>U</span><span>P</span><span>&nbsp;</span><span>O</span><span>V</span><span>E</span><span>R</span>
-    </p>
-  </section>
+      <!-- 2. Simple 3D transform -->
+      <article class="card" id="simple-3d">
+        <header class="card-header">
+          <h2>Simple 3D Transform</h2>
+          <p class="card-note">
+            Rotating around the X/Y axes with perspective creates a 3D “tilt” effect.
+          </p>
+        </header>
+        <div class="card-body">
+          <div class="robot-3d" aria-hidden="true">🤖</div>
+        </div>
+      </article>
 
-  <section class="motion-path-demo">
-    <h2>Motion Path Animation (offset-path)</h2>
+      <!-- 3. Keyframe fundamentals -->
+      <article class="card" id="keyframe-fundamentals">
+        <header class="card-header">
+          <h2>Keyframe Animation Fundamentals</h2>
+          <p class="card-note">
+            A scale-in animation with overshoot: 0% → 85% → 100%.
+          </p>
+        </header>
+        <div class="card-body">
+          <p class="scale-in-title">Scale-in title</p>
+        </div>
+      </article>
 
-    <div class="sky">
-      <div class="robot" aria-hidden="true">🤖</div>
-    </div>
+      <!-- 4. Delay + fill-mode -->
+      <article class="card" id="delay-fillmode">
+        <header class="card-header">
+          <h2>animation-delay &amp; animation-fill-mode</h2>
+          <p class="card-note">
+            The badge starts from its 0% keyframe during the delay using
+            <code>animation-fill-mode: backwards;</code>.
+          </p>
+        </header>
+        <div class="card-body">
+          <span class="delayed-badge">Delayed intro</span>
+        </div>
+      </article>
 
-    <p class="motion-caption">
-      This robot follows a CSS motion path using
-      <code>offset-path</code>, <code>offset-distance</code>, and
-      <code>offset-rotate</code>.
-    </p>
-  </section>
+      <!-- 5. animation-direction -->
+      <article class="card" id="animation-direction">
+        <header class="card-header">
+          <h2>animation-direction</h2>
+          <p class="card-note">
+            Same keyframes, different directions: normal vs alternate.
+          </p>
+        </header>
+        <div class="card-body direction-row">
+          <div class="direction-track">
+            <span class="direction-dot direction-normal"></span>
+            <p class="direction-label">normal</p>
+          </div>
+          <div class="direction-track">
+            <span class="direction-dot direction-alternate"></span>
+            <p class="direction-label">alternate</p>
+          </div>
+        </div>
+      </article>
 
-  <section class="svg-demo">
-  <h2>SVG + CSS Animation</h2>
+      <!-- 6. Timing functions & easing -->
+      <article class="card" id="timing-functions">
+        <header class="card-header">
+          <h2>Easing &amp; Timing Functions</h2>
+          <p class="card-note">
+            Same distance, different easing: linear, ease-out, custom cubic-bezier.
+          </p>
+        </header>
+        <div class="card-body easing-row">
+          <div class="easing-track">
+            <div class="easing-dot ease-linear"></div>
+            <p class="easing-label">linear</p>
+          </div>
+          <div class="easing-track">
+            <div class="easing-dot ease-out"></div>
+            <p class="easing-label">ease-out</p>
+          </div>
+          <div class="easing-track">
+            <div class="easing-dot ease-custom"></div>
+            <p class="easing-label">cubic-bezier</p>
+          </div>
+        </div>
+      </article>
 
-  <div class="svg-card">
-    <svg
-      class="star-svg"
-      viewBox="0 0 120 120"
-      aria-hidden="true"
-      role="img"
-    >
-      <!-- Star outline -->
-      <polygon
-        id="star-outline"
-        points="60,10 72.9,42.2 107.6,44.5 80.9,66.8 89.4,100.5 60,82 30.6,100.5 39.1,66.8 12.4,44.5 47.1,42.2"
-        fill="none"
-        stroke="#ffb703"
-        stroke-width="5"
-        stroke-linejoin="round"
-      />
-      <!-- Star fill -->
-      <polygon
-        id="star-fill"
-        points="60,10 72.9,42.2 107.6,44.5 80.9,66.8 89.4,100.5 60,82 30.6,100.5 39.1,66.8 12.4,44.5 47.1,42.2"
-        fill="#ffb703"
-      />
-    </svg>
+      <!-- 7. steps() typing effect -->
+      <article class="card" id="steps-typing">
+        <header class="card-header">
+          <h2>steps() Typing Effect</h2>
+          <p class="card-note">
+            steps() divides the duration into discrete blocks to reveal one character at a time.
+          </p>
+        </header>
+        <div class="card-body">
+          <p class="typing" aria-label="Typing with steps timing function">
+            <span class="typing-text">Typing with steps()</span>
+          </p>
+        </div>
+      </article>
 
-    <p class="svg-caption">
-      This star icon is an inline SVG. The fill polygon scales in (“pop”) while
-      both shapes fade using CSS keyframe animations.
-    </p>
-  </div>
-</section>
+      <!-- 8. Infinitely looping clouds -->
+      <article class="card" id="infinite-loop">
+        <header class="card-header">
+          <h2>Infinitely Looping Animation</h2>
+          <p class="card-note">
+            Reusing the same keyframes on multiple elements with different durations &amp; delays.
+          </p>
+        </header>
+        <div class="card-body">
+          <div class="cloud-sky">
+            <div class="cloud cloud-one"></div>
+            <div class="cloud cloud-two"></div>
+          </div>
+        </div>
+      </article>
 
+      <!-- 9. animation-play-state -->
+      <article class="card" id="play-state">
+        <header class="card-header">
+          <h2>animation-play-state</h2>
+          <p class="card-note">
+            The sticker only spins while hovered: paused → running.
+          </p>
+        </header>
+        <div class="card-body">
+          <div class="sticker" aria-hidden="true">🥪</div>
+        </div>
+      </article>
+
+      <!-- 10. 3D text + chained keyframes -->
+      <article class="card" id="chained-3d-text">
+        <header class="card-header">
+          <h2>3D Text &amp; Chained Keyframes</h2>
+          <p class="card-note">
+            Letters flip up, then over, using two keyframe sets chained on each span.
+          </p>
+        </header>
+        <div class="card-body">
+          <p class="flip-word" aria-label="Up and over text animation">
+            <span>U</span><span>P</span><span>&nbsp;</span><span>O</span><span>V</span><span>E</span><span>R</span>
+          </p>
+        </div>
+      </article>
+
+      <!-- 11. Motion path with offset-path -->
+      <article class="card" id="motion-path">
+        <header class="card-header">
+          <h2>Motion Path (offset-path)</h2>
+          <p class="card-note">
+            A robot emoji follows a custom SVG-style path using offset-path &amp; offset-distance.
+          </p>
+        </header>
+        <div class="card-body motion-card-body">
+          <div class="motion-sky">
+            <div class="motion-robot" aria-hidden="true">🤖</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12. SVG + CSS animation -->
+      <article class="card" id="svg-animation">
+        <header class="card-header">
+          <h2>Animating SVG with CSS</h2>
+          <p class="card-note">
+            Inline SVG star: fill pops in while the outline fades away.
+          </p>
+        </header>
+        <div class="card-body">
+          <div class="svg-card">
+            <svg
+              class="star-svg"
+              viewBox="0 0 120 120"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- Star outline -->
+              <polygon
+                id="star-outline"
+                points="60,10 72.9,42.2 107.6,44.5 80.9,66.8 89.4,100.5 60,82 30.6,100.5 39.1,66.8 12.4,44.5 47.1,42.2"
+                fill="none"
+                stroke="#ffb703"
+                stroke-width="5"
+                stroke-linejoin="round"
+              />
+              <!-- Star fill -->
+              <polygon
+                id="star-fill"
+                points="60,10 72.9,42.2 107.6,44.5 80.9,66.8 89.4,100.5 60,82 30.6,100.5 39.1,66.8 12.4,44.5 47.1,42.2"
+                fill="#ffb703"
+              />
+            </svg>
+            <p class="svg-caption">
+              Transform origin + transform-box keep the scale centered on the star itself.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
 </body>
 </html>
