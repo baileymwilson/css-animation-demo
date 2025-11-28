@@ -1,243 +1,538 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Recursive:wght,CASL@300..800,0..1&display=swap");
 
+/* ===== Base layout ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background: #f5f5f5;
+  margin: 0;
+  background: #f5f5f7;
+  color: #111827;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-h1 {
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
   font-family: "Recursive", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 2.4rem;
-  margin-bottom: 1.5rem;
-  font-variation-settings: "wght" 600, "CASL" 0.2;
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  margin: 0 0 1rem;
+  font-variation-settings: "wght" 650, "CASL" 0.2;
   animation: titleCasual 4s ease-in-out infinite alternate;
+}
+
+.page-header .lede {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #4b5563;
 }
 
 @keyframes titleCasual {
   from {
-    font-variation-settings: "wght" 600, "CASL" 0.1;
+    font-variation-settings: "wght" 650, "CASL" 0.1;
   }
   to {
-    font-variation-settings: "wght" 600, "CASL" 0.8;
+    font-variation-settings: "wght" 650, "CASL" 0.8;
   }
 }
 
+.demo-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
-/* main button-style box */
-.box {
+/* ===== Cards ===== */
+
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.card-header h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem;
+}
+
+.card-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Small helper */
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+/* ===== 1. Transforms & transitions ===== */
+
+.btn-demo {
   font-family: "Recursive", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #3a86ff;
-  color: white;
-  padding: 35px 60px;
-  font-size: 1.8rem;
-  border-radius: 12px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  border: none;
   cursor: pointer;
-  transition: transform 350ms ease, background-color 350ms ease,
-    box-shadow 350ms ease, font-variation-settings 350ms ease;
+
+  transform: translateY(0) scale(1);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  font-variation-settings: "wght" 550, "CASL" 0.1;
+
+  transition:
+    transform 220ms ease-out,
+    background-color 220ms ease-out,
+    box-shadow 220ms ease-out,
+    font-variation-settings 220ms ease-out;
 }
 
-.box:hover {
-  transform: scale(1.08) rotate(2deg);
-  background: #8338ec;
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.16);
+.btn-demo:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: #1d4ed8;
+  box-shadow: 0 14px 40px rgba(37, 99, 235, 0.5);
+  font-variation-settings: "wght" 650, "CASL" 0.3;
 }
 
-/* click “pulse” animation */
-.box:active {
-  animation: pulse 0.4s ease-out;
+.btn-demo:active {
+  transform: translateY(0) scale(0.97);
 }
 
-@keyframes pulse {
-  0%   { transform: scale(1.0); }
-  50%  { transform: scale(1.15); }
-  100% { transform: scale(1.0); }
+/* ===== 2. Simple 3D transform ===== */
+
+#simple-3d .card-body {
+  perspective: 1000px;
 }
 
-/* sliding panel */
-.panel {
-  width: 100px;
-  height: 100px;
-  border-radius: 12px;
-  background: #ff006e;
-  animation: slide 2s infinite alternate ease-in-out;
-}
-
-@keyframes slide {
-  from { transform: translateX(-120px); }
-  to   { transform: translateX(120px); }
-}
-
-/* fade-in text */
-.fade-in {
-  opacity: 0;
-  font-size: 1.2rem;
-  animation: fade 1s forwards 0.6s ease-out;
-}
-
-@keyframes fade {
-  to { opacity: 1; }
-}
-
-.circle {
+.robot-3d {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  background: #ffbe0b;
-  animation: spin 3s infinite linear;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: radial-gradient(circle at 30% 20%, #e0f2fe, #bfdbfe);
+  transform: rotateX(30deg) rotateY(-18deg);
+  box-shadow:
+    0 20px 40px rgba(15, 23, 42, 0.22),
+    0 0 0 1px rgba(148, 163, 184, 0.4);
+  transition: transform 400ms ease, box-shadow 400ms ease;
 }
 
-@keyframes spin {
+.robot-3d:hover {
+  transform: rotateX(0deg) rotateY(0deg);
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.28),
+    0 0 0 1px rgba(148, 163, 184, 0.6);
+}
+
+/* ===== 3. Keyframe fundamentals: scale-in title ===== */
+
+.scale-in-title {
+  font-family: "Recursive", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.8rem;
+  margin: 0;
+  font-variation-settings: "wght" 600, "CASL" 0.2;
+  transform-origin: center;
+  animation: scaleIn 1.4s cubic-bezier(0.25, 0.8, 0.4, 1.1) 0.2s both;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  85% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ===== 4. Delay + fill-mode ===== */
+
+.delayed-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #1d4ed8;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  animation: badgeIn 1s ease-out 1.2s backwards;
+}
+
+@keyframes badgeIn {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== 5. animation-direction ===== */
+
+.direction-row {
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.direction-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.direction-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.direction-track::before {
+  content: "";
+  width: 160px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e5e7eb, #d1d5db);
+}
+
+.direction-dot {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+}
+
+.direction-normal {
+  animation: travel 2.2s ease-in-out 0s infinite;
+}
+
+.direction-alternate {
+  animation: travel 2.2s ease-in-out 0s infinite alternate;
+}
+
+@keyframes travel {
+  0% {
+    transform: translateX(-80px);
+  }
+  100% {
+    transform: translateX(80px);
+  }
+}
+
+/* ===== 6. Timing functions & easing ===== */
+
+.easing-row {
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.easing-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.easing-track::before {
+  content: "";
+  width: 180px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e5e7eb, #d1d5db);
+}
+
+.easing-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #6366f1;
+}
+
+.ease-linear {
+  animation: easeTravel 2s linear 0s infinite;
+}
+
+.ease-out {
+  animation: easeTravel 2s ease-out 0s infinite;
+}
+
+.ease-custom {
+  animation: easeTravel 2s cubic-bezier(0.25, 1.2, 0.4, 1) 0s infinite;
+}
+
+@keyframes easeTravel {
+  0% {
+    transform: translateX(-90px);
+  }
+  100% {
+    transform: translateX(90px);
+  }
+}
+
+.easing-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* ===== 7. steps() typing effect ===== */
+
+.typing {
+  position: relative;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 1rem;
+  padding-right: 0.25rem;
+}
+
+.typing-text {
+  display: inline-block;
+  white-space: nowrap;
+  border-right: 2px solid #111827;
+  overflow: hidden;
+
+  /* total characters count ~ 19, use 19 steps */
+  animation:
+    typing 3s steps(19, end) 0.4s forwards,
+    cursorBlink 0.6s steps(1, end) infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes cursorBlink {
+  0%,
+  50% {
+    border-color: #111827;
+  }
+  50.1%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* ===== 8. Infinite looping clouds ===== */
+
+.cloud-sky {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  height: 150px;
+  border-radius: 18px;
+  background: linear-gradient(#dbeafe, #eff6ff);
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.12),
+    30px 0 0 #ffffff,
+    60px 10px 0 #ffffff;
+}
+
+.cloud-one {
+  top: 25px;
+  left: -160px;
+  animation: floatCloud 25s linear infinite;
+}
+
+.cloud-two {
+  top: 70px;
+  left: -200px;
+  animation: floatCloud 30s linear 5s infinite backwards;
+}
+
+@keyframes floatCloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(820px);
+  }
+}
+
+/* ===== 9. animation-play-state ===== */
+
+.sticker {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: radial-gradient(circle at 30% 20%, #fffbeb, #fef3c7);
+  box-shadow: 0 16px 35px rgba(245, 158, 11, 0.35);
+  animation: spinSticker 10s linear infinite;
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+.sticker:hover {
+  animation-play-state: running;
+}
+
+@keyframes spinSticker {
   to {
     transform: rotate(360deg);
   }
 }
 
-/* ========== Chained keyframe demo ========== */
+/* ===== 10. 3D text + chained keyframes ===== */
 
-.chained-demo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 3rem;
-}
-
-.chained-demo h2 {
-  font-size: 1.6rem;
-}
-
-/* Container needs perspective for 3D rotation to look right */
-.flip-word {
-  display: inline-flex;
-  gap: 0.1em;
+#chained-3d-text .card-body {
   perspective: 700px;
 }
 
-/* Each letter is a 3D "card" we flip */
+.flip-word {
+  display: inline-flex;
+  gap: 0.1em;
+}
+
 .flip-word span {
   display: inline-block;
-  font-size: 2.4rem;
-  transform-origin: center bottom;
+  font-size: 2.3rem;
+  transform-origin: 50% 70%;
   backface-visibility: hidden;
 
-  /* Two animations chained together:
-     1) flipUp  (no delay)
-     2) flipDown (starts later via delay)
-  */
   animation:
-    flipUp   1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s forwards,
+    flipUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s forwards,
     flipDown 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.75s forwards;
 }
 
-/* First phase: flip the letters up */
 @keyframes flipUp {
   from {
-    transform: rotateX(0deg) translateY(0);
+    transform: rotateX(90deg);
   }
   to {
-    transform: rotateX(180deg) translateY(-10px);
+    transform: rotateX(0deg);
   }
 }
 
-/* Second phase: flip them back "over" so they end up upside down */
 @keyframes flipDown {
-  /* We skip "from" because it starts where flipUp left off */
   to {
-    transform: rotateX(-180deg) translateY(10px);
+    transform: rotateX(-180deg) translateY(8px);
   }
 }
 
-/* Letter 1 (U): starts at base times */
 .flip-word span:nth-child(1) {
   animation-delay: 0s, 2.75s;
 }
 
-/* Letter 2 (P): starts 0.2s later for both animations */
 .flip-word span:nth-child(2) {
   animation-delay: 0.2s, 2.95s;
 }
 
-/* Space character: keep same delays as P to preserve rhythm */
 .flip-word span:nth-child(3) {
   animation-delay: 0.4s, 3.15s;
 }
 
-/* Letter 4 (O) */
 .flip-word span:nth-child(4) {
   animation-delay: 0.6s, 3.35s;
 }
 
-/* Letter 5 (V) */
 .flip-word span:nth-child(5) {
   animation-delay: 0.8s, 3.55s;
 }
 
-/* Letter 6 (E) */
 .flip-word span:nth-child(6) {
   animation-delay: 1s, 3.75s;
 }
 
-/* Letter 7 (R) */
 .flip-word span:nth-child(7) {
   animation-delay: 1.2s, 3.95s;
 }
 
-/* ========== Motion path demo ========== */
+/* ===== 11. Motion path (offset-path) ===== */
 
-.motion-path-demo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 3rem;
+.motion-card-body {
+  justify-content: center;
+  width: 100%;
 }
 
-.motion-path-demo h2 {
-  font-size: 1.6rem;
-}
-
-/* The “sky” area the robot flies across */
-.sky {
+.motion-sky {
   position: relative;
   width: 500px;
+  max-width: 100%;
   height: 220px;
   border-radius: 16px;
-  border: 1px dashed rgba(0, 0, 0, 0.15);
+  border: 1px dashed rgba(148, 163, 184, 0.6);
   background: linear-gradient(#d9f3ff, #f5fbff);
   overflow: visible;
 }
 
-/* The robot itself */
-.robot {
+.motion-robot {
   position: absolute;
   font-size: 2.4rem;
 
-  /* Start at the beginning of the path */
   offset-distance: 0%;
-
-  /* Follow the direction of the path */
   offset-rotate: auto;
-
-  /* Our motion path: a simple looping curve across the box */
   offset-path: path(
     "M 20 180
      C 160 40  280 40  420 180
      S 680 320  820 180"
   );
 
-  /* Animate offset-distance along that path */
   animation: fly 9s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
   animation-fill-mode: both;
 }
 
-/* Keyframes: move from 0% to 100% along the path */
 @keyframes fly {
   0% {
     offset-distance: 0%;
@@ -247,36 +542,13 @@ h1 {
   }
 }
 
-.motion-caption {
-  font-size: 0.95rem;
-  max-width: 520px;
-  text-align: center;
-  opacity: 0.8;
-}
-
-/* ========== SVG + CSS animation demo ========== */
-
-.svg-demo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 3rem;
-}
-
-.svg-demo h2 {
-  font-size: 1.6rem;
-}
+/* ===== 12. SVG + CSS animation ===== */
 
 .svg-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  padding: 1.5rem 1.75rem;
-  border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 .star-svg {
@@ -305,7 +577,6 @@ h1 {
   animation: fadeStarOut 0.25s linear 0.5s forwards;
 }
 
-/* Pop scale animation (like the heart “beat” but for a star) */
 @keyframes star-pop {
   0% {
     transform: scale(0.1);
@@ -318,7 +589,6 @@ h1 {
   }
 }
 
-/* Fade-in for the fill */
 @keyframes fadeStarIn {
   from {
     opacity: 0;
@@ -328,7 +598,6 @@ h1 {
   }
 }
 
-/* Fade-out for the outline */
 @keyframes fadeStarOut {
   from {
     opacity: 1;
@@ -339,8 +608,22 @@ h1 {
 }
 
 .svg-caption {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   max-width: 320px;
   text-align: center;
-  opacity: 0.85;
+  color: #6b7280;
+}
+
+/* ===== Responsive tweaks ===== */
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.4rem 1.3rem;
+  }
+
+  .direction-row,
+  .easing-row {
+    flex-direction: column;
+    align-items: center;
+  }
 }
