@@ -253,3 +253,94 @@ h1 {
   text-align: center;
   opacity: 0.8;
 }
+
+/* ========== SVG + CSS animation demo ========== */
+
+.svg-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.svg-demo h2 {
+  font-size: 1.6rem;
+}
+
+.svg-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.star-svg {
+  width: 140px;
+  height: 140px;
+}
+
+/* Shared transform defaults for reliable scaling */
+#star-fill,
+#star-outline {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+/* Filled star: popping in + fading in */
+#star-fill {
+  opacity: 0;
+  animation:
+    star-pop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards,
+    fadeStarIn 0.25s linear 0.15s forwards;
+}
+
+/* Outline: fades out after the fill has popped in */
+#star-outline {
+  opacity: 1;
+  animation: fadeStarOut 0.25s linear 0.5s forwards;
+}
+
+/* Pop scale animation (like the heart “beat” but for a star) */
+@keyframes star-pop {
+  0% {
+    transform: scale(0.1);
+  }
+  80% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Fade-in for the fill */
+@keyframes fadeStarIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade-out for the outline */
+@keyframes fadeStarOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.svg-caption {
+  font-size: 0.95rem;
+  max-width: 320px;
+  text-align: center;
+  opacity: 0.85;
+}
