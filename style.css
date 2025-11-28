@@ -184,8 +184,6 @@ code {
 
 /* ===== 4. Delay + fill-mode ===== */
 
-/* ===== 4. Delay + fill-mode (looping but readable) ===== */
-
 .delayed-badge {
   display: inline-flex;
   align-items: center;
@@ -198,7 +196,6 @@ code {
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
-  /* Start from the 0% keyframe style during the delay */
   animation: badgeIn 1.2s ease-out 1s infinite alternate backwards;
 }
 
@@ -453,12 +450,6 @@ animation:
   transform-origin: 50% 70%;
   backface-visibility: hidden;
 
-  /* Slower + looping:
-     - flipUp runs for 4s
-     - flipDown runs for 4s
-     - base delay between them = 3s
-     → full cycle per letter ≈ 8s
-  */
   animation:
     flipUp   4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s infinite,
     flipDown 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 4s infinite;
@@ -489,13 +480,6 @@ animation:
     transform: rotateX(-180deg) translateY(8px);
   }
 }
-
-/* Staggered delays for the wave effect
-   First value → flipUp delay
-   Second value → flipDown delay
-   Base delays: 0s / 4s
-   Each next letter adds 0.25s.
-*/
 
 .flip-word span:nth-child(1) {
   animation-delay: 0s, 4s;
@@ -557,7 +541,7 @@ animation:
   offset-rotate: auto;
   -webkit-offset-rotate: auto;
 
-  /* New path: stays within ~40–460px horizontally and 40–180px vertically */
+
   offset-path: path("M 40 160 C 140 40 260 40 460 160");
   -webkit-offset-path: path("M 40 160 C 140 40 260 40 460 160");
 
@@ -565,7 +549,6 @@ animation:
   animation-fill-mode: both;
 }
 
-/* Animate both prefixed and unprefixed distances */
 @keyframes fly {
   0% {
     offset-distance: 0%;
@@ -591,7 +574,6 @@ animation:
   height: 140px;
 }
 
-/* Shared transform defaults for reliable scaling */
 #star-fill,
 #star-outline {
   transform-origin: 50% 50%;
