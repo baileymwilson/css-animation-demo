@@ -188,3 +188,68 @@ h1 {
 .flip-word span:nth-child(7) {
   animation-delay: 1.2s, 3.95s;
 }
+
+/* ========== Motion path demo ========== */
+
+.motion-path-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.motion-path-demo h2 {
+  font-size: 1.6rem;
+}
+
+/* The “sky” area the robot flies across */
+.sky {
+  position: relative;
+  width: 500px;
+  height: 220px;
+  border-radius: 16px;
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+  background: linear-gradient(#d9f3ff, #f5fbff);
+  overflow: visible;
+}
+
+/* The robot itself */
+.robot {
+  position: absolute;
+  font-size: 2.4rem;
+
+  /* Start at the beginning of the path */
+  offset-distance: 0%;
+
+  /* Follow the direction of the path */
+  offset-rotate: auto;
+
+  /* Our motion path: a simple looping curve across the box */
+  offset-path: path(
+    "M 20 180
+     C 160 40  280 40  420 180
+     S 680 320  820 180"
+  );
+
+  /* Animate offset-distance along that path */
+  animation: fly 9s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation-fill-mode: both;
+}
+
+/* Keyframes: move from 0% to 100% along the path */
+@keyframes fly {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.motion-caption {
+  font-size: 0.95rem;
+  max-width: 520px;
+  text-align: center;
+  opacity: 0.8;
+}
