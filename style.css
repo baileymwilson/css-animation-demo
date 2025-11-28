@@ -153,3 +153,38 @@ h1 {
     transform: rotateX(-180deg) translateY(10px);
   }
 }
+
+/* Letter 1 (U): starts at base times */
+.flip-word span:nth-child(1) {
+  animation-delay: 0s, 2.75s;
+}
+
+/* Letter 2 (P): starts 0.2s later for both animations */
+.flip-word span:nth-child(2) {
+  animation-delay: 0.2s, 2.95s;
+}
+
+/* Space character: keep same delays as P to preserve rhythm */
+.flip-word span:nth-child(3) {
+  animation-delay: 0.4s, 3.15s;
+}
+
+/* Letter 4 (O) */
+.flip-word span:nth-child(4) {
+  animation-delay: 0.6s, 3.35s;
+}
+
+/* Letter 5 (V) */
+.flip-word span:nth-child(5) {
+  animation-delay: 0.8s, 3.55s;
+}
+
+/* Letter 6 (E) */
+.flip-word span:nth-child(6) {
+  animation-delay: 1s, 3.75s;
+}
+
+/* Letter 7 (R) */
+.flip-word span:nth-child(7) {
+  animation-delay: 1.2s, 3.95s;
+}
