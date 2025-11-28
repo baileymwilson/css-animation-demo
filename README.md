@@ -14,7 +14,8 @@ I wanted to show that I completed the course and can independently apply core co
 ## 🌐 Live Link
 https://baileymwilson.github.io/css-animation-demo/
 
-- **Source Code Repo:** https://github.com/baileymwilson/css-animation-demo
+- **Source Code Repo:**
+https://github.com/baileymwilson/css-animation-demo
 
 
 ## 🛠 Tech Used
