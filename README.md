@@ -1,15 +1,35 @@
 # CSS Animation Demo
 
-This is a small interactive demo I created while completing the LinkedIn Learning course **“CSS: Animation” by Val Head**.
+This is a small interactive gallery I created while completing the LinkedIn Learning course **CSS: Animation** by Val Head. Rather than recreating the course samples, I applied concepts in a more intentional way—building UI-style animations, motion patterns, and small interaction elements.
+
+---
 
 ## ✔️ What it demonstrates
-- CSS keyframe animations
-- transitions and hover states
-- transforms (scale, rotate, translate)
-- animation timing functions and easing
+- CSS keyframe animations  
+- transitions and hover states  
+- transforms (scale, rotate, translate, 3D perspective)  
+- animation timing functions and easing (`cubic-bezier`)  
+- animation-delay and `animation-fill-mode`  
+- animation-direction and sequencing  
+- `steps()` timing function (typing effect)  
+- infinite/looping animation patterns  
+- `animation-play-state`  
+- chained multi-stage keyframe animations  
+- motion path animation using:
+  - `offset-path`
+  - `offset-distance`
+  - `offset-rotate`
+- inline SVG animation (outline + fill transition)  
+- variable font animation using `font-variation-settings`
+
+---
 
 ## 💡 Why I built it
-I wanted to show that I completed the course and can independently apply core concepts in a practical animation example.
+I wanted to show that I completed the course and could **independently apply the concepts** in a way that feels more like real UI design: clear, intentional, reusable, and modular.
+
+It’s also a personal motion design reference for small interaction patterns and micro-animations I can reuse later.
+
+---
 
 ## 🌐 Live Link
 https://baileymwilson.github.io/css-animation-demo/
@@ -19,8 +39,9 @@ https://github.com/baileymwilson/css-animation-demo
 
 
 ## 🛠 Tech Used
-- HTML
-- CSS
+- HTML  
+- CSS  
+- Inline SVG  
 - GitHub Pages for deployment
 
 ## Screenshots
