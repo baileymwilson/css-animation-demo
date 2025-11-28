@@ -18,3 +18,17 @@ https://baileymwilson.github.io/css-animation-demo/
 - HTML
 - CSS
 - GitHub Pages for deployment
+
+## Screenshots
+
+### Live Website
+![Live Demo](screenshots/Animation Browser.png)
+
+### GitHub Repository
+![GitHub Repo](screenshots/GitHub Repo Main.png)
+
+### VS Code – style.css
+![VS Code style.css](screenshots/VS Code Window 2.png)
+
+### VS Code – index.html
+![VS Code index.html](screenshots/VS Code Window1.png)
