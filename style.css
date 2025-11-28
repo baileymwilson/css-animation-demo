@@ -546,42 +546,36 @@ animation:
 /* Robot following the path */
 .motion-robot {
   position: absolute;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
+  line-height: 1;
+  /* Make it extra obvious while debugging */
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
 
   /* Start at beginning of path */
   offset-distance: 0%;
+  -webkit-offset-distance: 0%;
   offset-rotate: auto;
+  -webkit-offset-rotate: auto;
 
-  /* Motion path: curve that stays mostly within the box area */
-  offset-path: path(
-    "M 20 170
-     C 120 40  260 40  380 170
-     S 640 300  820 170"
-  );
+  /* Motion path: single-line string (some engines choke on multi-line) */
+  offset-path: path("M 20 170 C 120 40 260 40 380 170 S 640 300 820 170");
+  -webkit-offset-path: path("M 20 170 C 120 40 260 40 380 170 S 640 300 820 170");
 
   animation: fly 9s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
   animation-fill-mode: both;
 }
 
-/* For older WebKit */
-/*
-.motion-robot {
-  -webkit-offset-distance: 0%;
-  -webkit-offset-rotate: auto;
-  -webkit-offset-path: path(
-    'M 20 170
-     C 120 40  260 40  380 170
-     S 640 300  820 170'
-  );
-}
-*/
-
+/* Animate both prefixed and unprefixed distances */
 @keyframes fly {
   0% {
     offset-distance: 0%;
+    -webkit-offset-distance: 0%;
   }
   100% {
     offset-distance: 100%;
+    -webkit-offset-distance: 100%;
   }
 }
 
