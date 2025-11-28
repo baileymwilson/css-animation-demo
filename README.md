@@ -21,14 +21,11 @@ https://baileymwilson.github.io/css-animation-demo/
 
 ## Screenshots
 
-### Live Website
-![Live Demo](screenshots/optimized_animation_browser.png)
+| Live Animation | GitHub Repository |
+|---|---|
+| ![](screenshots/optimized_animation_browser.png) | ![](screenshots/optimized_github_repo_main.png) |
 
-### GitHub Repository
-![GitHub Repo](screenshots/optimized_github_repo_main.png)
+| index.html | style.css |
+|---|---|
+| ![](screenshots/optimized_vscode_index.png) | ![](screenshots/optimized_vscode_style.png) |
 
-### VS Code – style.css
-![VS Code style.css](screenshots/optimaized_vscode_style.png)
-
-### VS Code – index.html
-![VS Code index.html](screenshots/optimized_vscode_index.png)
