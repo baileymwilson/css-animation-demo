@@ -456,7 +456,7 @@ animation:
   /* Slower + looping:
      - flipUp runs for 4s
      - flipDown runs for 4s
-     - base delay between them = 4s
+     - base delay between them = 3s
      → full cycle per letter ≈ 8s
   */
   animation:
