@@ -184,6 +184,8 @@ code {
 
 /* ===== 4. Delay + fill-mode ===== */
 
+/* ===== 4. Delay + fill-mode (looping but readable) ===== */
+
 .delayed-badge {
   display: inline-flex;
   align-items: center;
@@ -196,7 +198,8 @@ code {
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
-  animation: badgeIn 1s ease-out 1.2s infinate alternate backwards;
+  /* Start from the 0% keyframe style during the delay */
+  animation: badgeIn 1.2s ease-out 1s infinite alternate backwards;
 }
 
 @keyframes badgeIn {
@@ -433,7 +436,7 @@ animation:
   }
 }
 
-/* ===== 10. 3D text + chained keyframes (slower loop) ===== */
+/* ===== 10. 3D text + chained keyframes ===== */
 
 #chained-3d-text .card-body {
   perspective: 700px;
@@ -540,21 +543,38 @@ animation:
   overflow: visible;
 }
 
+/* Robot following the path */
 .motion-robot {
   position: absolute;
   font-size: 2.4rem;
 
+  /* Start at beginning of path */
   offset-distance: 0%;
   offset-rotate: auto;
+
+  /* Motion path: curve that stays mostly within the box area */
   offset-path: path(
-    "M 20 180
-     C 160 40  280 40  420 180
-     S 680 320  820 180"
+    "M 20 170
+     C 120 40  260 40  380 170
+     S 640 300  820 170"
   );
 
   animation: fly 9s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
   animation-fill-mode: both;
 }
+
+/* For older WebKit (optional but safe to include): */
+/*
+.motion-robot {
+  -webkit-offset-distance: 0%;
+  -webkit-offset-rotate: auto;
+  -webkit-offset-path: path(
+    'M 20 170
+     C 120 40  260 40  380 170
+     S 640 300  820 170'
+  );
+}
+*/
 
 @keyframes fly {
   0% {
